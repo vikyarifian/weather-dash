@@ -14,3 +14,9 @@ def get_connection():
     """
     return psycopg.connect(DATABASE_URL)
 
+def get_dict_connection():
+    """
+    Establish and return a connection with dict_row factory enabled
+    to fetch database rows as dictionaries, matching our API representation needs.
+    """
+    return psycopg.connect(DATABASE_URL, row_factory=dict_row)
